@@ -359,6 +359,18 @@ where
     pub unsafe fn swap_unchecked(&mut self, i1: usize, i2: usize) {
         self.coords.swap_unchecked((i1, 0), (i2, 0))
     }
+
+    /// Extracts a slice containing the entire matrix entries ordered column-by-columns.
+    #[inline]
+    pub fn as_slice(&self) -> &[T] {
+        self.coords.as_slice()
+    }
+
+    /// Extracts a mutable slice containing the entire matrix entries ordered column-by-columns.
+    #[inline]
+    pub fn as_mut_slice(&mut self) -> &mut [T] {
+        self.coords.as_mut_slice()
+    }
 }
 
 impl<T: Scalar + AbsDiffEq, D: DimName> AbsDiffEq for OPoint<T, D>
