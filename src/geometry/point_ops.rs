@@ -105,31 +105,6 @@ add_sub_impl!(Sub, sub, ClosedSubAssign;
     self: OPoint<T, D>, right: OPoint<T, D>, Output = OVector<T, D>;
     self.coords - right.coords; );
 
-// Point + Point
-add_sub_impl!(Add, add, ClosedAdd;
-    (D, U1), (D, U1) -> (D, U1)
-    const; for D; where D: DimName, DefaultAllocator: Allocator<T, D>;
-    self: &'a OPoint<T, D>, right: &'b OPoint<T, D>, Output = OPoint<T, D>;
-    Self::Output::from(&self.coords + &right.coords); 'a, 'b);
-
-add_sub_impl!(Add, add, ClosedAdd;
-    (D, U1), (D, U1) -> (D, U1)
-    const; for D; where D: DimName, DefaultAllocator: Allocator<T, D>;
-    self: &'a OPoint<T, D>, right: OPoint<T, D>, Output = OPoint<T, D>;
-    Self::Output::from(&self.coords + right.coords); 'a);
-
-add_sub_impl!(Add, add, ClosedAdd;
-    (D, U1), (D, U1) -> (D, U1)
-    const; for D; where D: DimName, DefaultAllocator: Allocator<T, D>;
-    self: OPoint<T, D>, right: &'b OPoint<T, D>, Output = OPoint<T, D>;
-    Self::Output::from(self.coords + &right.coords); 'b);
-
-add_sub_impl!(Add, add, ClosedAdd;
-    (D, U1), (D, U1) -> (D, U1)
-    const; for D; where D: DimName, DefaultAllocator: Allocator<T, D>;
-    self: OPoint<T, D>, right: OPoint<T, D>, Output = OPoint<T, D>;
-    Self::Output::from(self.coords + right.coords); );
-
 // Point - Vector
 add_sub_impl!(Sub, sub, ClosedSubAssign;
     (D1, U1), (D2, U1) -> (D1, U1)
