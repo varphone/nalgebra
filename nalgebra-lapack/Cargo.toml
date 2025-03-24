@@ -43,5 +43,5 @@ nalgebra = { version = "0.33", features = ["arbitrary", "rand"], path = ".." }
 proptest = { version = "1", default-features = false, features = ["std"] }
 quickcheck = "1"
 approx = "0.5"
-rand = "0.8"
+rand = "0.9"
 
